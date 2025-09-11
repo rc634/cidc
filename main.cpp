@@ -10,7 +10,7 @@ int main() {
     double r1 = 1000.0; // end radius 
     double lapse_0 = 1.0;  // Initial lapse
     double psi_0 = 1.0;  // Initial conformal factor
-    double dr = 0.02; // stepsize
+    double dr = 0.004; // stepsize
 
     // define the integrator
     RK4Solver solver;
@@ -27,6 +27,7 @@ int main() {
 
     // find the final value of alpha
     lapse_0 = lapse_0/solver.alpha_inf;
+    
     // re-integrate with better aymptotics
     result = solver.integrate(r0, r1, lapse_0, psi_0, dr);
 

@@ -11,7 +11,8 @@ Scalar_Profile::Scalar_Profile()
 double Scalar_Profile::u_of_r(double a_r)
 {
     double x = a_r - rc;
-    double u = u0 * exp(-x*x/sigma);
+    double gaussian = u0 * exp(-x*x/sigma);
+    double u = a_r * a_r * a_r * gaussian;
     return u;
 }
 
@@ -19,6 +20,7 @@ double Scalar_Profile::u_of_r(double a_r)
 double Scalar_Profile::du_dr(double a_r)
 {
     double x = a_r - rc;
-    double dudr = (- 2. * x /sigma) * u_of_r(a_r);
+    double gaussian = u0 * exp(-x*x/sigma);
+    double dudr = (3. - 2. * x * a_r/sigma)*a_r*a_r*gaussian;
     return dudr;
 }

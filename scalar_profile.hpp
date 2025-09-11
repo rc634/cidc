@@ -13,7 +13,7 @@ public:
     double du_dr(double a_r);
 
 private:
-    double u0 = 0.06;
+    double u0 = 0.00005;
     double sigma = 1.;
     double rc = 10.;
 };
