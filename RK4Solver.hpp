@@ -23,8 +23,13 @@ private:
     RHS rhs;
 
 public:
-    // large radius value of alpha
-    double alpha_inf = 1.;
+    // large radius values
+    double lapse_inf = 0.;
+    double psi_inf = 0.;
+    // mass of solution
+    double mass_inf = 0.; 
+    // used to renormalise alpha
+    double renorm = 0.;
 };
 
 #endif // RK4SOLVER_HPP

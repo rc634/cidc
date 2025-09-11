@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 data = pd.read_csv("output.csv")
 
 # Extract columns
-radius = data["Radius"]
-y1 = data["Lapse"]
-y2 = data["Psi"]
-y3 = data["U"]
+radius = data["r"]
+y1 = data["alpha_norm(r)"]
+y2 = data["psi(r)"]
+y3 = data["u(r)"]
 
 # Create subplots
 # plt.figure(figsize=(10, 6))

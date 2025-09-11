@@ -1,4 +1,5 @@
 #include "RK4Solver.hpp"
+#include <iostream>
 
 RK4Solver::RK4Solver()
 {
@@ -23,7 +24,10 @@ RK4Solver::integrate(
         if (r + h > r1) 
         {
             h = r1 - r;
-            alpha_inf = lapse;
+            lapse_inf = lapse;
+            psi_inf = psi;
+            mass_inf = r * (psi_inf - 1.);
+            renorm = lapse_inf / (2. - psi_inf);
         }
 
         double up1 = scalar.du_dr(r);

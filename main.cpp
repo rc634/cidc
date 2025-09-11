@@ -15,19 +15,13 @@ int main() {
     // define the integrator
     RK4Solver solver;
 
-    // result tuple 
+    // result, vector of tuples
     auto result = solver.integrate(r0, r1, lapse_0, psi_0, dr);
 
-    // print to screen 
-    // std::cout << std::fixed << std::setprecision(5);
-    // std::cout << "Time\tY1\t\tY2\n";
-    // for (const auto& [t, y1, y2] : result) {
-    //     std::cout << t << "\t" << y1 << "\t" << y2 << "\n";
-    // }
+    // find the asymptotic value of the lapse
+    // then re-scale the initial guess lapse_0
+    lapse_0 = lapse_0/solver.renorm;
 
-    // find the final value of alpha
-    lapse_0 = lapse_0/solver.alpha_inf;
-    
     // re-integrate with better aymptotics
     result = solver.integrate(r0, r1, lapse_0, psi_0, dr);
 
@@ -39,7 +33,7 @@ int main() {
     }
 
     // Write header
-    outFile << "Radius," << "Lapse," << "Psi," << "U\n";
+   outFile << "r," << "alpha_norm(r)," << "psi(r)," << "u(r)\n";
 
     // Write data
     outFile << std::fixed << std::setprecision(5);
@@ -49,6 +43,9 @@ int main() {
 
     outFile.close();
     std::cout << "Data written to output.csv\n";
+
+
+    std::cout << "Total Mass : " << solver.mass_inf << std::endl;
 
     return 0;
 }
