@@ -9,8 +9,10 @@ public:
     RHS();
     
     // gives the scalar field output
-    double lapse(double r, double lapse, double psi, double u);
-    double psi(double r, double lapse, double psi, double u);
+    double lapse(double r, double lapse, double psi, double zeta, double up);
+    double psi(double r, double lapse, double psi, double zeta, double up);
+    double zeta(double r, double lapse, double psi, double zeta, double up);
+
 
 private:
     double eps = pow(10.,-10);
