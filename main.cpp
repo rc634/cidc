@@ -37,7 +37,7 @@ int main() {
     std::cout << "Psi_inf = " << solver.psi_inf << " and lapse_inf = " << solver.lapse_inf << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
 
-    // re-integrate with better aymptotics
+    // re-integrate with better initial conditions
     result = solver.integrate(r0, r1, lapse_0, psi_0, zeta_0, dr);
 
     std::cout << "-- DO REGULAR RK4" << std::endl;
