@@ -58,7 +58,7 @@ int main() {
    outFile << "r," << "alpha_norm(r)," << "psi(r)," << "zeta(r)," << "u(r)\n";
 
     // Write data
-    outFile << std::fixed << std::setprecision(5);
+    outFile << std::fixed << std::setprecision(16);
     for (const auto& [r, lapse, psi, zeta, u] : result) {
         outFile << r << "," << lapse << "," << psi << "," << zeta << "," << u << "\n";
     }
